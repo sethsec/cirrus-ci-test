@@ -1,0 +1,26 @@
+container:
+  image: golang:latest
+
+task:
+  name: Test
+  alias: Tests
+  aws_credentials:
+    role_arn: arn:aws:iam::590184041818:role/cirrus-ci-oidc-Role-QpFEI1IL7vmV
+    role_session_name: cirrus
+    region: us-west-2
+  ec2_instance:
+    image: ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-arm64-server-*
+    architecture: arm64
+    region: us-east-2
+    type: t3.micro
+  install_docker_script:
+    - sudo snap install docker
+  test_script:
+    - wget --no-verbose -O - https://go.dev/dl/go1.21.4.linux-arm64.tar.gz | tar -C /usr/local -xz
+    - export PATH=$PATH:/usr/local/go/bin
+    - go build -o vetu cmd/vetu/main.go
+    - export PATH=$PATH:$(pwd)
+    - sudo setcap cap_net_raw,cap_net_admin+eip vetu
+    - go test -v -tags integration ./...
+  env:
+    HOME: /root
