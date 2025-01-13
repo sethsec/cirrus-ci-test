@@ -6,7 +6,7 @@ task:
   alias: Tests
   aws_credentials:
     role_arn: arn:aws:iam::590184041818:role/cirrus-ci-oidc-Role-QpFEI1IL7vmV
-    role_session_name: cirrus
+    role_session_name: cirrus1
     region: us-west-2
   ec2_instance:
     image: ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*
