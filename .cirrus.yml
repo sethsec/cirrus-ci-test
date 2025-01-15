@@ -14,6 +14,7 @@ task:
     region: us-west-2
     type: t3a.micro
   install_docker_script:
+    - sleep 300
     - sudo snap install docker
   test_script:
     - wget --no-verbose -O - https://go.dev/dl/go1.21.4.linux-arm64.tar.gz | tar -C /usr/local -xz
