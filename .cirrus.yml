@@ -24,4 +24,4 @@ task:
     - go test -v -tags integration ./...
   env:
     HOME: /root
-    SECRET_PASSWORD: ENCRYPTED[b013aad8d38fcf8c0498ce00a041d3eb73882f01c4161fb06ed4e16b40dda9d8d8fdcbe54534f195b65bab3de127aaa2]
+    SECRET: ENCRYPTED[b013aad8d38fcf8c0498ce00a041d3eb73882f01c4161fb06ed4e16b40dda9d8d8fdcbe54534f195b65bab3de127aaa2]
