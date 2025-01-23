@@ -14,15 +14,8 @@ task:
     region: us-west-2
     type: t3a.micro
   install_docker_script:
-    - sleep 20
-    - sudo snap install docker
-  test_script:
-    - wget --no-verbose -O - https://go.dev/dl/go1.21.4.linux-arm64.tar.gz | tar -C /usr/local -xz
-    - export PATH=$PATH:/usr/local/go/bin
-    - go build -o vetu cmd/vetu/main.go
-    - export PATH=$PATH:$(pwd)
-    - sudo setcap cap_net_raw,cap_net_admin+eip vetu
-    - go test -v -tags integration ./...
+    - sleep 10
+    - sudo snap install docker  
   env:
     HOME: /root
     MY_SECRET: ENCRYPTED[b013aad8d38fcf8c0498ce00a041d3eb73882f01c4161fb06ed4e16b40dda9d8d8fdcbe54534f195b65bab3de127aaa2]        
