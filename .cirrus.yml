@@ -14,7 +14,7 @@ task:
     region: us-west-2
     type: t3a.micro
   install_docker_script:
-    - sleep 10
+    - sleep 11
     - sudo snap install docker  
   env:
     HOME: /root
